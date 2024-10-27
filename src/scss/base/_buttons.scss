@@ -1,0 +1,29 @@
+@use './mixins' as m;
+@use './variables' as v;
+
+
+.btnLarge {
+    @include m.btnLarge();
+}
+
+.btnLarge--yellow {
+    background: v.$yellow;
+}
+.btnLarge--red {
+    background: v.$red;
+}
+.btnLarge--blue {
+    background: v.$blue;
+}
+
+.btnSmall {
+    @include m.btnSmall();
+}
+
+.btnSmall--green {
+    background: v.$green;
+}
+
+.btnSmall--yellow {
+    background: v.$yellow;
+}

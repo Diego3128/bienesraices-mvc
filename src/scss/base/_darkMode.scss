@@ -1,0 +1,30 @@
+@use '../base/variables' as v;
+
+.dark-mode{
+    background: darken(v.$darkgray, 10);
+    color: v.$white;
+
+    .card, .blog-entry, .form{
+        background-color: darken(v.$darkgray, 5);
+    }
+    .form{
+        color: v.$white;
+        legend, p{
+        color: v.$white;
+        }
+        fieldset, input:not([type="submit"]), textarea, select{
+        color: v.$white;
+        border-color: v.$darkgray;
+        background-color: darken(v.$darkgray, 5);
+        }
+    }
+    h1,h2,h3,h4,h5,h6{
+        color: v.$gray;
+    }
+    .card__icons img, .characteristics__icons img{
+        filter: invert(100%);
+    }
+    .testimonial{
+        background-color: darken(v.$green, 15);
+    }
+}

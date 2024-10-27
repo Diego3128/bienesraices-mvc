@@ -1,0 +1,32 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.webp .contact-img {
+    background-image: url(../img/encuentra.webp);
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+}
+
+.no-webp .contact-img {
+    background-image: url(../img/encuentra.jpg);
+}
+
+.contact-img {
+    min-height: 60vh;
+    text-align: center;
+    padding: 8rem 3rem 5rem;
+    margin-bottom: 8rem;
+
+    h2,
+    p {
+        margin-bottom: 4rem;
+        color: v.$white;
+
+    }
+
+    h2 {
+        font-weight: bold;
+        font-size: 4rem;
+    }
+}

@@ -1,0 +1,99 @@
+@use './variables' as v;
+
+/** Media Queries **/
+@mixin phone {
+    @media (min-width: v.$phone) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+
+@mixin grid($columns, $gap: 2rem) {
+    display: grid;
+    gap: $gap;
+    grid-template-columns: repeat($columns, 1fr);
+}
+
+
+// Flex mixins
+
+@mixin flexRow($columnGap: 2rem) {
+    display: flex;
+    padding: 0 1rem;
+    justify-content: space-between;
+    // column-gap: $columnGap;
+}
+
+
+@mixin flexHorizontal($jC: space-between, $clGap: 2rem) {
+    display: flex;
+    flex-direction: row;
+    justify-content: $jC;
+    align-items: center;
+    column-gap: $clGap;
+}
+
+// formaters
+
+@mixin container {
+    width: min(90%, 120rem);
+    margin: 0 auto;
+}
+
+@mixin listFormatter{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+//buttons
+@mixin btnLarge($bg: #000, $color: #fff) {
+    display: block;
+    width: 95%;
+    padding: 1.5rem 1rem;
+    outline: none;
+    border: none;
+    color: $color;
+    background: $bg;
+    border-radius: 1.5rem;
+    text-align: center;
+    font-weight: bolder;
+    text-transform: uppercase;
+    margin: 0 auto 1.5rem;
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        opacity: .8;
+    }
+}
+
+@mixin btnSmall($bg: #000, $color: #fff) {
+    display: inline-block;
+    width: fit-content;
+    outline: none;
+    border: none;
+    padding: 1.5rem 1rem;
+    color: $color;
+    background: $bg;
+    border-radius: 1.5rem;
+    text-align: center;
+    font-weight: bolder;
+    text-transform: uppercase;
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        opacity: .8;
+    }
+}

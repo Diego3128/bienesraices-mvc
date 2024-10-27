@@ -1,0 +1,137 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.blog-test-section {
+    @include m.tablet {
+        @include m.grid(2);
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+
+.blog-entry {
+    margin-bottom: 6rem;
+    background: lighten(v.$gray, 10);
+    border-radius: 1rem;
+    box-shadow: 2px 2px 6px #00000037;
+
+    @include m.desktop {
+        @include m.flexHorizontal();
+        height: 28rem;
+
+        .image {
+            flex: 2;
+            height: 100%;
+
+            picture,
+            img {
+                height: 100%;
+            }
+
+            img {
+                object-fit: cover;
+            }
+        }
+
+        .content {
+            flex: 3;
+        }
+    }
+
+    .image {
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+}
+
+.content {
+    padding: 1rem;
+    height: 100%;
+
+    h4,
+    p {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        margin: 0;
+    }
+
+    h4 {
+        -webkit-line-clamp: 2;
+        /* Número de líneas visibles antes del truncamiento */
+        line-clamp: 2;
+    }
+
+    p {
+        margin: 1rem 0;
+        padding-right: 2rem;
+        -webkit-line-clamp: 4;
+        /* Número de líneas visibles antes del truncamiento */
+        line-clamp: 4;
+    }
+
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+.text-yellow {
+    color: v.$yellow;
+}
+
+h4 {
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        background: v.$green;
+        height: .4rem;
+        width: 70%;
+        left: 0;
+        bottom: 0;
+        border-radius: 1rem;
+        box-shadow: 0px 1px 6px -1px v.$yellow;
+    }
+}
+
+
+// .testimonials * {
+//     outline: 1px red solid;
+// }
+
+.testimonial {
+    background: v.$green;
+    color: v.$white;
+    border-radius: 1rem;
+    padding: 5rem 3rem 4rem 8rem;
+    box-shadow: 2px 2px 6px #00000037;
+    margin-bottom: 4rem;
+
+    blockquote {
+        position: relative;
+        margin: 0 0 2rem;
+        font-size: 2rem;
+        font-weight: 400;
+        line-height: 2.2;
+
+        &::before {
+            content: '';
+            position: absolute;
+            height: 5rem;
+            width: 5rem;
+            left: -5rem;
+            top: -2rem;
+            background-image: url(../img/comilla.svg);
+        }
+    }
+
+    p {
+        text-align: right;
+    }
+}

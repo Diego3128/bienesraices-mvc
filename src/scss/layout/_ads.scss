@@ -1,0 +1,98 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.ads-container {
+    @include m.tablet {
+        @include m.grid(2);
+        margin-bottom: 4rem;
+    }
+
+    @include m.desktop {
+        @include m.grid(3);
+    }
+}
+
+.card {
+    background-color: lighten(v.$gray, 9);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 2px 2px 6px #00000037;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+
+    picture {
+        margin-bottom: 1rem;c
+        img {
+            height: 28rem;
+            object-fit: cover;
+        }
+    }
+
+    .card__details {
+        margin: 0 1rem;
+    }
+
+    .card__title,
+    .card__description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+    }
+
+    .card__title {
+        text-wrap: balance;
+        text-transform: capitalize;
+        font-size: 2.2rem;
+        margin: 0;
+        -webkit-line-clamp: 2;
+        /* Número de líneas visibles antes del truncamiento */
+        line-clamp: 2;
+        @include m.desktop {
+            height: 7.5rem;
+        }
+    }
+
+    .card__description {
+        margin-top: 1rem;
+        -webkit-line-clamp: 4;
+        /* Número de líneas visibles antes del truncamiento */
+        line-clamp: 4;
+        @include m.desktop {
+            height: 15rem;
+        }
+    }
+
+    .card__icons {
+        list-style: none;
+        @include m.flexRow(1rem);
+        padding: 0;
+        justify-content: space-around;
+        margin-bottom: 5rem;
+
+        li {
+            @include m.flexRow();
+            align-items: center;
+            column-gap: 1rem;
+            padding: 0;
+            font-weight: bold;
+        }
+    }
+
+}
+
+.align-right {
+    text-align: right;
+    margin: 4rem 0 8rem;
+}
+
+.card__price {
+    color: v.$green;
+    text-decoration: underline;
+    font-size: 2.5rem;
+
+    .dollar {
+        font-weight: bolder;
+    }
+}

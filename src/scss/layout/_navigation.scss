@@ -1,0 +1,117 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+
+
+.bar {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 3rem 0rem;
+    row-gap: 4rem;
+
+    img {
+        width: 250px;
+        margin: 0 auto;
+    }
+
+    @include m.tablet {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .dark-mode-btn{
+        margin-bottom: 3rem;
+        width: 2.5rem;
+        filter: invert(100%);
+        &:hover{
+            cursor: pointer;
+        }
+        @include m.tablet{
+            display: inline-block;
+            margin-bottom: 1rem;
+            margin-top: -2rem;
+            margin-right: -3rem;
+        }
+    }
+}
+.right{
+    text-align: unset;
+    @include m.tablet{
+        text-align: right;
+    }
+}
+
+
+.navigation {
+    a {
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: v.$white;
+        font-size: 1.8rem;
+        text-transform: capitalize;
+
+        &:hover {
+            color: v.$yellow;
+        }
+    }
+
+    @include m.tablet {
+        display: flex;
+        justify-content: space-between;
+        column-gap: 3rem;
+    }
+}
+
+
+.bar{
+    .navigation{
+        overflow: hidden;
+        height: 0;
+        transition: all 600ms ease-in-out;
+        &.show{
+            height: 18rem;
+            @include m.tablet{
+                height: auto;
+            }
+        }
+        @include m.tablet{
+            height: auto;
+        }
+        
+    }
+    .navigation a{
+        transform: translateY(-40rem);
+        transition: transform 600ms ease-in-out;
+        @include m.tablet{
+            transform: translateY(0);
+        }
+    }
+    .show a{
+        transform: translateY(0);
+    }
+
+    .burguer-icon{
+        transform: rotate(0);
+        transition: transform 400ms ease-in-out;
+    }
+    .rotate{
+        transform: rotate(90deg);
+    }
+}
+
+.mobile-menu{
+    @include m.tablet{
+        display: none;
+    }
+    img{
+        width: 4rem;
+        transform: rotate(0deg);
+    }
+
+    img.flip{
+        transition: transform 500ms ease-in-out;
+        transform: rotate(90deg);
+    }
+}

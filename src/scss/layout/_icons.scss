@@ -1,0 +1,39 @@
+@use "../base/mixins" as m;
+@use "../base/variables" as v;
+
+@include m.tablet {
+  .aboutus-icons {
+    padding: 0 4rem;
+    @include m.grid(3, 3rem);
+  }
+}
+
+.icon {
+  text-align: center;
+
+  img {
+    height: 12rem;
+    width: auto;
+    margin: 0 auto;
+    filter: drop-shadow(0px 2px 2px v.$darkgray);
+  }
+
+  h3 {
+    text-transform: uppercase;
+  }
+}
+
+.characteristics__icons {
+  width: min(50rem, 60%);
+  @include m.flexHorizontal();
+  @include m.listFormatter();
+  li {
+    @include m.flexHorizontal();
+    img {
+      flex: 3;
+    }
+    p {
+      flex: 1;
+    }
+  }
+}
